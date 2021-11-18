@@ -52,7 +52,7 @@ function coffeeSearch() {
             console.log(searchCoffee);
         }
     });
-    tbody.innerHTML = renderCoffees(filterCoffees);
+    tbody.innerHTML = coffeeSearch(filterCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
