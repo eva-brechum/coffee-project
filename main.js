@@ -44,15 +44,15 @@ function updateCoffees(e) {
 
 function coffeeSearch() {
     var searchCoffee = searchBox.value.toUpperCase();
-    var filterCoffees = [];
+    var filteredCoffees = [];
     console.log(searchCoffee);
     coffees.forEach(function (coffee) {
         if (coffee.name.toUpperCase().includes(searchCoffee)) {
-        filterCoffees.push(coffee);
+        filteredCoffees.push(coffee);
             console.log(searchCoffee);
         }
     });
-    tbody.innerHTML = renderCoffees(filterCoffees);
+    tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -77,9 +77,9 @@ var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
-var searchButton = document.querySelector("#searchBox");
+var searchBox = document.querySelector("#searchBoxButton");
 
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
-searchButton.addEventListener('click', coffeeSearch);
+searchBox.addEventListener('click', coffeeSearch);
