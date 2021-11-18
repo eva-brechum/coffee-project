@@ -52,8 +52,6 @@ function coffeeSearch() {
             console.log(searchCoffee);
         }
     });
-
-    tbody.innerHTML = coffeeSearch(filterCoffees);
     tbody.innerHTML = renderCoffees(filteredCoffees);
 
 }
