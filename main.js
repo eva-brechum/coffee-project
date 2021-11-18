@@ -8,7 +8,7 @@ function renderCoffee(coffee) {
     html += '<h5 class="card-text">' + "12 oz | $14.95" +  '</h5>';
     html += '</div>';
     html += '</div>';
-    
+ 
     return html;
 }
 
@@ -19,6 +19,8 @@ function renderCoffees(coffees) {
     }
     return html;
 }
+
+
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -34,10 +36,24 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-// Search roastfunction
-function matchName(coffee, search) {
-    if(search === '') return true;
-    return (coffee.name.toLowerCase().indexOf(search) >= 0);
+// Search roast function
+// function matchName(coffee, search) {
+//     if(search === '') return true;
+//     return (coffee.name.toLowerCase().indexOf(search[i]) >= 0);
+// }
+
+function coffeeSearch() {
+    var searchCoffee = searchBox.value.toUpperCase();
+    var filteredCoffees = [];
+    console.log(searchCoffee);
+    coffees.forEach(function (coffee) {
+        if (coffee.name.toUpperCase().includes(searchCoffee)) {
+        filteredCoffees.push(coffee);
+            console.log(searchCoffee);
+        }
+    });
+    tbody.innerHTML = renderCoffees(filteredCoffees);
+
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -61,9 +77,10 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-var searchButton = document.querySelector("#search-button");
+
+var searchBox = document.querySelector("#searchBoxButton");
 
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
-searchButton.addEventListener('click', matchName);
+searchBox.addEventListener('click', coffeeSearch);
