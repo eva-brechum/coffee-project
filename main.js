@@ -1,4 +1,5 @@
 "use strict"
+// my personal Project for practice
 
 function renderCoffee(coffee) {
     var html = '<div class="coffee card shadow-sm p-1 bg-white rounded">';
